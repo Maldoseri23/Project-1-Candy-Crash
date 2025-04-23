@@ -36,10 +36,6 @@
 #### 20.	Create function moveIntoSquareBelow moves candies down into empty spaces and fills the top row with new random candies.for loop
 #### 21.	Create function setInterval that runs every 100 milliseconds to: check for new matches, move candies down to fill gaps, continuously update the board and score.
 
-
-
----
-
 ---
 
 ### **_Credits_**
