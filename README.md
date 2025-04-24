@@ -30,9 +30,9 @@
 #### 14.	 Create function dragStart: Stores the color and ID of the dragged candy.
 #### 15.	Create function dragDrop: Swaps the colors of the dragged and dropped candies.
 #### 16.	Create function dragEnd: Checks if the move is valid (only adjacent swaps allowed). If not, it reverts the swap.
-#### 17.	Create function checkRowForFour and checkColumnForFour: Look for four candies of the same color in a row or column.
-#### 18.	Create function checkRowForThree and checkColumnForThree: Look for three candies of the same color.
-#### 19.	When a match is found, the matched candies are cleared (set to blank), and the score is updated
+#### 17.	When a match is found, the matched candies are cleared (set to blank), and the score is updated
+#### 18.	Create function checkRowForFour and checkColumnForFour: Look for four candies of the same color in a row or column.
+#### 19.	Create function checkRowForThree and checkColumnForThree: Look for three candies of the same color.
 #### 20.	Create function moveIntoSquareBelow moves candies down into empty spaces and fills the top row with new random candies.for loop
 #### 21.	Create function setInterval that runs every 100 milliseconds to: check for new matches, move candies down to fill gaps, continuously update the board and score.
 
