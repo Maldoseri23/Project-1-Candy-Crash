@@ -25,7 +25,7 @@
 #### 9.	Select the grid element (the game board) and the score display.
 #### 10.	Sets the board width to 8 (for an 8x8 grid).
 #### 11.	Initializes an array squares to hold the candy squares and a score variable.
-#### 12.	Defines candyColors as an array of image URLs representing different candy types example: [jelly Bean](https://pngimg.com/image/13856))
+#### 12.	Defines candyColors as an array of image URLs representing different candy types example: [jelly Bean](https://pngimg.com/image/13856)
 
 #### 13.	Each candy square gets event listeners for drag-and-drop events: dragstart, dragend, dragover, dragenter, dragleave, and drop
 #### 14.	 Create function dragStart: Stores the color and ID of the dragged candy.
@@ -41,6 +41,6 @@
 
 ### **_Credits_**
 
-#### Candy Image: [jelly Bean](https://pngimg.com/image/13856))
+#### Candy Image: [jelly Bean](https://pngimg.com/image/13856)
 
 ---
