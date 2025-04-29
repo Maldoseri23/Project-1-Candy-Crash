@@ -12,4 +12,17 @@ const candyCrushGame = () => {
     'url("./purple-candy.png")',
     'url("./red-candy.png")'
   ]
+  const createBoard = () => {
+    for (let i = 0; i < width * width; i++) {
+      const square = document.createElement('div')
+      square.setAttribute('draggable', true)
+      square.setAttribute('id', i)
+      let randomColor = Math.floor(Math.random() * candyColors.length)
+      square.style.backgroundImage = candyColors[randomColor]
+      grid.appendChild(square)
+      squares.push(square)
+    }
+  }
+  createBoard()
+  scoreDisplay.textContent = score
 }
