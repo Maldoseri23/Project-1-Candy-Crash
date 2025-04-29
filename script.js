@@ -8,6 +8,9 @@ const candyCrushGame = () => {
   let moves = 20
   let gameLoop
 
+  const bellsSound = new Audio('./bells.mp3')
+  bellsSound.load()
+
   const candyColors = [
     'url("./blue-candy.png")',
     'url("./yellow-candy.png")',
@@ -132,6 +135,7 @@ const candyCrushGame = () => {
         rowOfFour.forEach((idx) => (squares[idx].style.backgroundImage = ''))
         score += 4
         foundMatch = true
+        matchSound.play()
       }
     }
 
@@ -148,6 +152,7 @@ const candyCrushGame = () => {
         columnOfFour.forEach((idx) => (squares[idx].style.backgroundImage = ''))
         score += 4
         foundMatch = true
+        matchSound.play()
       }
     }
 
@@ -169,6 +174,7 @@ const candyCrushGame = () => {
         rowOfThree.forEach((idx) => (squares[idx].style.backgroundImage = ''))
         score += 3
         foundMatch = true
+        matchSound.play()
       }
     }
 
@@ -187,6 +193,7 @@ const candyCrushGame = () => {
         )
         score += 3
         foundMatch = true
+        matchSound.play()
       }
     }
 
