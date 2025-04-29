@@ -171,3 +171,4 @@ const candyCrushGame = () => {
     checkForMatches()
   }, 100)
 }
+candyCrushGame()
