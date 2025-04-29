@@ -167,4 +167,7 @@ const candyCrushGame = () => {
     else {
     }
   }
+  window.setInterval(() => {
+    checkForMatches()
+  }, 100)
 }
