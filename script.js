@@ -162,5 +162,9 @@ const candyCrushGame = () => {
         foundMatch = true
       }
     }
+
+    if (foundMatch) scoreDisplay.textContent = score
+    else {
+    }
   }
 }
