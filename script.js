@@ -1,9 +1,13 @@
 const candyCrushGame = () => {
   const grid = document.querySelector('.grid')
   const scoreDisplay = document.getElementById('score')
+  const movesDisplay = document.getElementById('moves')
   const width = 8
   const squares = []
   let score = 0
+  let moves = 20
+  let gameLoop
+
   const candyColors = [
     'url("./blue-candy.png")',
     'url("./yellow-candy.png")',
@@ -26,6 +30,7 @@ const candyCrushGame = () => {
   }
   createBoard()
   scoreDisplay.textContent = score
+  movesDisplay.textContent = moves
 
   let squareIdBeingDragged
   let squareIdBeingReplaced
@@ -62,19 +67,26 @@ const candyCrushGame = () => {
       (isLeftEdge && squareIdBeingReplaced === squareIdBeingDragged - 1) ||
       (isRightEdge && squareIdBeingReplaced === squareIdBeingDragged + 1)
     ) {
-      return // Invalid move, do nothing
+      return
     }
     if (validMove) {
-      // Swap colors only if move is valid
       const colorBeingDragged =
         squares[squareIdBeingDragged].style.backgroundImage
       const colorBeingReplaced =
         squares[squareIdBeingReplaced].style.backgroundImage
       squares[squareIdBeingDragged].style.backgroundImage = colorBeingReplaced
       squares[squareIdBeingReplaced].style.backgroundImage = colorBeingDragged
+
+      moves--
+      movesDisplay.textContent = moves
+
+      if (moves === 0) {
+        alert('Game Over!')
+        clearInterval(gameLoop)
+      }
+
       checkForMatches()
     }
-    // If not valid, do nothing (no swap)
   }
 
   squares.forEach((square) => {
@@ -124,7 +136,7 @@ const candyCrushGame = () => {
       }
     }
 
-    // Check for rows of three
+    // Row of three
     for (let i = 0; i < 64; i++) {
       const rowOfThree = [i, i + 1, i + 2]
       const notValid = [
@@ -140,14 +152,13 @@ const candyCrushGame = () => {
         )
       ) {
         rowOfThree.forEach((idx) => (squares[idx].style.backgroundImage = ''))
-        score += 3 // Update score for three matches
+        score += 3
         foundMatch = true
       }
     }
 
-    // Check for columns of three
-    for (let i = 0; i < 39; i++) {
-      // Only check first 39 squares for columns
+    // Column of three
+    for (let i = 0; i < 47; i++) {
       const columnOfThree = [i, i + width, i + width * 2]
       let decidedColor = squares[i].style.backgroundImage
       if (
@@ -159,7 +170,7 @@ const candyCrushGame = () => {
         columnOfThree.forEach(
           (idx) => (squares[idx].style.backgroundImage = '')
         )
-        score += 3 // Update score for three matches
+        score += 3
         foundMatch = true
       }
     }
