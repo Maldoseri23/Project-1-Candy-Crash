@@ -135,12 +135,12 @@ const candyCrushGame = () => {
         rowOfFour.forEach((idx) => (squares[idx].style.backgroundImage = ''))
         score += 4
         foundMatch = true
-        matchSound.play()
+        bellsSound.play()
       }
     }
 
     // Column of Four
-    for (let i = 0; i < 39; i++) {
+    for (let i = 0; i < 32; i++) {
       const columnOfFour = [i, i + width, i + width * 2, i + width * 3]
       let decidedColor = squares[i].style.backgroundImage
       if (
@@ -152,7 +152,7 @@ const candyCrushGame = () => {
         columnOfFour.forEach((idx) => (squares[idx].style.backgroundImage = ''))
         score += 4
         foundMatch = true
-        matchSound.play()
+        bellsSound.play()
       }
     }
 
@@ -174,7 +174,7 @@ const candyCrushGame = () => {
         rowOfThree.forEach((idx) => (squares[idx].style.backgroundImage = ''))
         score += 3
         foundMatch = true
-        matchSound.play()
+        bellsSound.play()
       }
     }
 
@@ -193,7 +193,7 @@ const candyCrushGame = () => {
         )
         score += 3
         foundMatch = true
-        matchSound.play()
+        bellsSound.play()
       }
     }
 
