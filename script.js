@@ -12,6 +12,7 @@ const candyCrushGame = () => {
     'url("./purple-candy.png")',
     'url("./red-candy.png")'
   ]
+
   const createBoard = () => {
     for (let i = 0; i < width * width; i++) {
       const square = document.createElement('div')
@@ -25,6 +26,11 @@ const candyCrushGame = () => {
   }
   createBoard()
   scoreDisplay.textContent = score
+
   let squareIdBeingDragged
   let squareIdBeingReplaced
+
+  const dragStart = (event) => {
+    squareIdBeingDragged = parseInt(event.target.id)
+  }
 }
