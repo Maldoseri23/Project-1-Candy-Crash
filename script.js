@@ -25,4 +25,6 @@ const candyCrushGame = () => {
   }
   createBoard()
   scoreDisplay.textContent = score
+  let squareIdBeingDragged
+  let squareIdBeingReplaced
 }
