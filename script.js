@@ -83,19 +83,34 @@ const candyCrushGame = () => {
       if (moves === 0) {
         alert('Game Over!')
         clearInterval(gameLoop)
+        removeEventListeners()
       }
 
       checkForMatches()
     }
   }
 
-  squares.forEach((square) => {
-    square.addEventListener('dragstart', dragStart)
-    square.addEventListener('dragover', dragOver)
-    square.addEventListener('dragenter', dragEnter)
-    square.addEventListener('drop', dragDrop)
-    square.addEventListener('dragend', dragEnd)
-  })
+  const addEventListener = () => {
+    squares.forEach((square) => {
+      square.addEventListener('dragstart', dragStart)
+      square.addEventListener('dragover', dragOver)
+      square.addEventListener('dragenter', dragEnter)
+      square.addEventListener('drop', dragDrop)
+      square.addEventListener('dragend', dragEnd)
+    })
+  }
+
+  const removeEventListeners = () => {
+    squares.forEach((square) => {
+      square.removeEventListener('dragstart', dragStart)
+      square.removeEventListener('dragover', dragOver)
+      square.removeEventListener('dragenter', dragEnter)
+      square.removeEventListener('drop', dragDrop)
+      square.removeEventListener('dragend', dragEnd)
+    })
+  }
+
+  addEventListener()
 
   const checkForMatches = () => {
     let foundMatch = false
