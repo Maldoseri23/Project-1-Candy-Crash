@@ -122,5 +122,26 @@ const candyCrushGame = () => {
         foundMatch = true
       }
     }
+
+    // Check for rows of three
+    for (let i = 0; i < 64; i++) {
+      const rowOfThree = [i, i + 1, i + 2]
+      const notValid = [
+        6, 7, 14, 15, 22, 23, 30, 31, 38, 39, 46, 47, 54, 55, 62, 63
+      ]
+      if (notValid.includes(i)) continue
+
+      let decidedColor = squares[i].style.backgroundImage
+      if (
+        decidedColor &&
+        rowOfThree.every(
+          (idx) => squares[idx].style.backgroundImage === decidedColor
+        )
+      ) {
+        rowOfThree.forEach((idx) => (squares[idx].style.backgroundImage = ''))
+        score += 3 // Update score for three matches
+        foundMatch = true
+      }
+    }
   }
 }
