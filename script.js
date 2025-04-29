@@ -41,4 +41,16 @@ const candyCrushGame = () => {
   const dragEnter = (event) => {
     event.preventDefault()
   }
+
+  const dragDrop = (event) => {
+    squareIdBeingReplaced = parseInt(event.target.id)
+    const colorBeingDragged =
+      squares[squareIdBeingDragged].style.backgroundImage
+    const colorBeingReplaced =
+      squares[squareIdBeingReplaced].style.backgroundImage
+
+    // Swap colors
+    squares[squareIdBeingDragged].style.backgroundImage = colorBeingReplaced
+    squares[squareIdBeingReplaced].style.backgroundImage = colorBeingDragged
+  }
 }
