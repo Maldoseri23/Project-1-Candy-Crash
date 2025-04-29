@@ -33,4 +33,8 @@ const candyCrushGame = () => {
   const dragStart = (event) => {
     squareIdBeingDragged = parseInt(event.target.id)
   }
+
+  const dragOver = (event) => {
+    event.preventDefault()
+  }
 }
