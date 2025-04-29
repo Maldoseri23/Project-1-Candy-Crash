@@ -29,3 +29,20 @@ body {
   color: #85796b;
   border-radius: 10px;
 }
+
+.grid div {
+  height: 70px;
+  width: 70px;
+  flex: 0 0 12.5%;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+h3 {
+  font-size: 30px;
+  color: #85796b;
+}
+
+h1 {
+  margin-top: -10px;
+}
