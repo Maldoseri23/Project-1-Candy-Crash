@@ -75,4 +75,12 @@ const candyCrushGame = () => {
       checkForMatches()
     }
   }
+
+  squares.forEach((square) => {
+    square.addEventListener('dragstart', dragStart)
+    square.addEventListener('dragover', dragOver)
+    square.addEventListener('dragenter', dragEnter)
+    square.addEventListener('drop', dragDrop)
+    square.addEventListener('dragend', dragEnd)
+  })
 }
