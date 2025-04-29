@@ -44,14 +44,6 @@ const candyCrushGame = () => {
 
   const dragDrop = (event) => {
     squareIdBeingReplaced = parseInt(event.target.id)
-    const colorBeingDragged =
-      squares[squareIdBeingDragged].style.backgroundImage
-    const colorBeingReplaced =
-      squares[squareIdBeingReplaced].style.backgroundImage
-
-    // Swap colors
-    squares[squareIdBeingDragged].style.backgroundImage = colorBeingReplaced
-    squares[squareIdBeingReplaced].style.backgroundImage = colorBeingDragged
   }
 
   const dragEnd = () => {
@@ -62,18 +54,27 @@ const candyCrushGame = () => {
       squareIdBeingDragged + width
     ]
     const validMove = validMoves.includes(squareIdBeingReplaced)
-    if (!validMove) {
-      // Reset colors if the move is invalid
+    // Prevent row wrapping
+    const isLeftEdge = squareIdBeingDragged % width === 0
+    const isRightEdge = squareIdBeingDragged % width === width - 1
+
+    if (
+      (isLeftEdge && squareIdBeingReplaced === squareIdBeingDragged - 1) ||
+      (isRightEdge && squareIdBeingReplaced === squareIdBeingDragged + 1)
+    ) {
+      return // Invalid move, do nothing
+    }
+    if (validMove) {
+      // Swap colors only if move is valid
       const colorBeingDragged =
         squares[squareIdBeingDragged].style.backgroundImage
       const colorBeingReplaced =
         squares[squareIdBeingReplaced].style.backgroundImage
-      squares[squareIdBeingReplaced].style.backgroundImage = colorBeingReplaced
-      squares[squareIdBeingDragged].style.backgroundImage = colorBeingDragged
-    } else {
-      // Check for matches after a valid move
+      squares[squareIdBeingDragged].style.backgroundImage = colorBeingReplaced
+      squares[squareIdBeingReplaced].style.backgroundImage = colorBeingDragged
       checkForMatches()
     }
+    // If not valid, do nothing (no swap)
   }
 
   squares.forEach((square) => {
