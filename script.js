@@ -143,5 +143,24 @@ const candyCrushGame = () => {
         foundMatch = true
       }
     }
+
+    // Check for columns of three
+    for (let i = 0; i < 39; i++) {
+      // Only check first 39 squares for columns
+      const columnOfThree = [i, i + width, i + width * 2]
+      let decidedColor = squares[i].style.backgroundImage
+      if (
+        decidedColor &&
+        columnOfThree.every(
+          (idx) => squares[idx].style.backgroundImage === decidedColor
+        )
+      ) {
+        columnOfThree.forEach(
+          (idx) => (squares[idx].style.backgroundImage = '')
+        )
+        score += 3 // Update score for three matches
+        foundMatch = true
+      }
+    }
   }
 }
