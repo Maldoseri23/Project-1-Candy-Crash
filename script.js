@@ -37,4 +37,8 @@ const candyCrushGame = () => {
   const dragOver = (event) => {
     event.preventDefault()
   }
+
+  const dragEnter = (event) => {
+    event.preventDefault()
+  }
 }
