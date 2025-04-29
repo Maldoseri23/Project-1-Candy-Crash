@@ -53,4 +53,26 @@ const candyCrushGame = () => {
     squares[squareIdBeingDragged].style.backgroundImage = colorBeingReplaced
     squares[squareIdBeingReplaced].style.backgroundImage = colorBeingDragged
   }
+
+  const dragEnd = () => {
+    const validMoves = [
+      squareIdBeingDragged - 1,
+      squareIdBeingDragged - width,
+      squareIdBeingDragged + 1,
+      squareIdBeingDragged + width
+    ]
+    const validMove = validMoves.includes(squareIdBeingReplaced)
+    if (!validMove) {
+      // Reset colors if the move is invalid
+      const colorBeingDragged =
+        squares[squareIdBeingDragged].style.backgroundImage
+      const colorBeingReplaced =
+        squares[squareIdBeingReplaced].style.backgroundImage
+      squares[squareIdBeingReplaced].style.backgroundImage = colorBeingReplaced
+      squares[squareIdBeingDragged].style.backgroundImage = colorBeingDragged
+    } else {
+      // Check for matches after a valid move
+      checkForMatches()
+    }
+  }
 }
