@@ -106,5 +106,21 @@ const candyCrushGame = () => {
         foundMatch = true
       }
     }
+
+    // Column of Four
+    for (let i = 0; i < 39; i++) {
+      const columnOfFour = [i, i + width, i + width * 2, i + width * 3]
+      let decidedColor = squares[i].style.backgroundImage
+      if (
+        decidedColor &&
+        columnOfFour.every(
+          (idx) => squares[idx].style.backgroundImage === decidedColor
+        )
+      ) {
+        columnOfFour.forEach((idx) => (squares[idx].style.backgroundImage = ''))
+        score += 4
+        foundMatch = true
+      }
+    }
   }
 }
