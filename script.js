@@ -32,8 +32,8 @@ const candyCrushGame = () => {
     }
   }
   createBoard()
-  scoreDisplay.textContent = score
-  movesDisplay.textContent = moves
+  scoreDisplay.innerHTML = score
+  movesDisplay.innerHTML = moves
 
   let squareIdBeingDragged
   let squareIdBeingReplaced
@@ -129,10 +129,12 @@ const candyCrushGame = () => {
       if (
         decidedColor &&
         rowOfFour.every(
-          (idx) => squares[idx].style.backgroundImage === decidedColor
+          (index) => squares[index].style.backgroundImage === decidedColor
         )
       ) {
-        rowOfFour.forEach((idx) => (squares[idx].style.backgroundImage = ''))
+        rowOfFour.forEach(
+          (index) => (squares[index].style.backgroundImage = '')
+        )
         score += 4
         foundMatch = true
         bellsSound.play()
@@ -146,10 +148,12 @@ const candyCrushGame = () => {
       if (
         decidedColor &&
         columnOfFour.every(
-          (idx) => squares[idx].style.backgroundImage === decidedColor
+          (index) => squares[index].style.backgroundImage === decidedColor
         )
       ) {
-        columnOfFour.forEach((idx) => (squares[idx].style.backgroundImage = ''))
+        columnOfFour.forEach(
+          (index) => (squares[index].style.backgroundImage = '')
+        )
         score += 4
         foundMatch = true
         bellsSound.play()
@@ -168,10 +172,12 @@ const candyCrushGame = () => {
       if (
         decidedColor &&
         rowOfThree.every(
-          (idx) => squares[idx].style.backgroundImage === decidedColor
+          (index) => squares[index].style.backgroundImage === decidedColor
         )
       ) {
-        rowOfThree.forEach((idx) => (squares[idx].style.backgroundImage = ''))
+        rowOfThree.forEach(
+          (index) => (squares[index].style.backgroundImage = '')
+        )
         score += 3
         foundMatch = true
         bellsSound.play()
@@ -185,11 +191,11 @@ const candyCrushGame = () => {
       if (
         decidedColor &&
         columnOfThree.every(
-          (idx) => squares[idx].style.backgroundImage === decidedColor
+          (index) => squares[index].style.backgroundImage === decidedColor
         )
       ) {
         columnOfThree.forEach(
-          (idx) => (squares[idx].style.backgroundImage = '')
+          (index) => (squares[index].style.backgroundImage = '')
         )
         score += 3
         foundMatch = true
@@ -197,7 +203,7 @@ const candyCrushGame = () => {
       }
     }
 
-    if (foundMatch) scoreDisplay.textContent = score
+    if (foundMatch) scoreDisplay.innerHTML = score
     else {
     }
   }
